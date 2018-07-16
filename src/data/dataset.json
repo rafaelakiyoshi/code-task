@@ -165,7 +165,19 @@
     "data": [
       {
         "language": "English",
-        "commands": []
+        "commands": [
+          "Open the gas tank",
+          "Resume",
+          "Skip",
+          "Unmute",
+          "Volume down",
+          "off",
+          "Play some Rock",
+          "Go to Sleep",
+          "Play some Jazz",
+          "Turn off the TV",
+          "How long have I run?"
+        ]
       },
       {
         "language": "German",

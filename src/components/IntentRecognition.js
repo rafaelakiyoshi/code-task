@@ -62,11 +62,8 @@ export default class IntentRecognition extends Component {
       THIS FUNCTION IS CALLED WHEN THE DATABASE CHANGES (THE FIRST DROPDOWN)
       THIS FUNCTION UPDATES THE SECOND DROPDOWN OPTIONS, AND SET THE FIRST LANGUAGE OPTION AS A SELECTED
     */
-    console.log(option.value)
     for(var index in this.state.datasets){
-      console.log(this.state.datasets[index], option.value)
       if(this.state.datasets[index] === option.label){
-        console.log(index)
         this.setState({commands: Dataset[index].data[0].commands})
         this.setState({dataSelected: option.label})
         this._fetchLanguages(index).then((res) => {
@@ -83,7 +80,6 @@ export default class IntentRecognition extends Component {
       setTimeout(() => {
           let datasets = []
           Dataset.forEach(data => {
-          console.log(data.database)
           datasets.push(data.database)
         });
         if(datasets.length === 0){
@@ -101,7 +97,6 @@ export default class IntentRecognition extends Component {
       setTimeout(() => {
         let languages = []
         Dataset[index].data.forEach(dataItem => {
-        console.log(dataItem.language)
         languages.push(dataItem.language)
       });
       if(languages.length === 0){
@@ -121,7 +116,7 @@ export default class IntentRecognition extends Component {
         if(data.database === databaseSelected){
           data.data.forEach(innerData => {
             if(innerData.language === languageSelected){
-              if(innerData.commands.length === 0){
+              if(!innerData.commands){
                 reject('Error: Couldn\'t return the languages');
               } else {
                 resolve(innerData.commands);
@@ -143,6 +138,11 @@ export default class IntentRecognition extends Component {
                 <VoiceControl />
               </div>
               <Title name={'COMMANDS'}/>
+              {this.state.commands <= 0 &&
+              <div>
+                <h2>Could not find Commands using those informations...</h2>
+              </div>
+              }
               <Commands commands={this.state.commands}/>
           </div>
         </div>

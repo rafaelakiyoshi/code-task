@@ -8,7 +8,7 @@ import './Logs.css';
           <ListGroup>
             {this.props.logs.map((log, index) => {
               return (
-                <ListGroupItem classname="log" key={index}>{log}</ListGroupItem>
+                <ListGroupItem className="log" key={index}>{log}</ListGroupItem>
               )
             })}
           </ListGroup>
