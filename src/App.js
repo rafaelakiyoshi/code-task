@@ -1,26 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { Tab, Tabs, Well } from 'react-bootstrap';
-import Title from './components/Title';
+import { Tab, Tabs } from 'react-bootstrap';
+import IntentRecognition from './components/IntentRecognition';
+import WakeWord from './components/WakeWord';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <Tabs defaultActiveKey={2} id="uncontrolled-tab-example">
-          <Tab eventKey={1} title="INTERNET RECOGNITION">
-            <Title name={'COMMANDS'}/>
-            <div className="command">teste</div>
-            <div className="command">teste</div>
+        <Tabs defaultActiveKey={1} id="uncontrolled-tab-example">
+          <Tab eventKey={1} title="INTENT RECOGNITION">
+            <IntentRecognition />
           </Tab>
-          <Tab eventKey={2} title="WAKEWORLD">
-            <Title name={'LOGS'}/>
+          <Tab eventKey={2} title="WAKEWORD">
+            <WakeWord />
           </Tab>
-      </Tabs>
+        </Tabs>
       </div>
     );
   }
 }
-
-export default App;
