@@ -1,0 +1,13 @@
+.micro {
+  background-color: #F3F2F2;
+
+}
+
+.image {
+  width: 5%;
+  height: 5%;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+  padding: 5px;
+}
