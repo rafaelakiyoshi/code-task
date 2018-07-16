@@ -1,0 +1,22 @@
+.IntentBody {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+
+
+.dropdown {
+  padding: 20px;
+  width: 50%;
+  text-align: left;
+  display: inline-block; 
+}
+
+.voicePadding {
+  padding-bottom: 10px;
+}
+
+.voicePaddingLog {
+  padding-bottom: 10px;
+  padding-top: 20px;
+}

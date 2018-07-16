@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { DropdownButton, MenuItem } from 'react-bootstrap';
 import './Title.css';
+import './IntentRecognition.css';
 import Dataset from '../data/dataset.json'
 import Commands from './Commands.js';
 import Title from './Title.js';
+import VoiceControl from './VoiceControl.js';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -19,6 +20,7 @@ export default class IntentRecognition extends Component {
       commands: []
    }
    this._onDataChange=this._onDataChange.bind(this);
+   this._onLanguageChange=this._onLanguageChange.bind(this);
   }
 
   componentWillMount(){
@@ -38,6 +40,14 @@ export default class IntentRecognition extends Component {
     
   }
   
+  _onLanguageChange(option) {
+    this._fetchCommands(this.state.dataSelected, option.value).then((res) => {
+      this.setState({commands: res})
+      this.setState({languageSelected: option.value})
+
+    });
+  }
+
   _onDataChange(option) {
     console.log(option.value)
     for(var index in this.state.datasets){
@@ -70,6 +80,7 @@ export default class IntentRecognition extends Component {
 
   _fetchLanguages(index) {
     return new Promise((resolve, reject) => {
+      // THIS TIMEOUT IS SIMULATING FETCH API DELAY
       setTimeout(() => {
         let languages = []
         Dataset[index].data.forEach(dataItem => {
@@ -81,14 +92,33 @@ export default class IntentRecognition extends Component {
     });
   }
 
+  _fetchCommands(databaseSelected, languageSelected){
+    return new Promise((resolve, reject) => {
+      // THIS TIMEOUT IS SIMULATING FETCH API DELAY
+      Dataset.forEach(data => {
+        if(data.database === databaseSelected){
+          data.data.forEach(innerData => {
+            if(innerData.language === languageSelected){
+              resolve(innerData.commands)
+            }
+          });
+        }
+      });
+    })
+  }
+
   render() {
     return (
         <div className="InternetRecognition">
           <Dropdown  className="dropdown" options={this.state.datasets} value={this.state.dataSelected} onChange={this._onDataChange} placeholder="Select a Database" />
-          <Dropdown  className="dropdown" options={this.state.languages} value={this.state.languageSelected} onChange={this._onSelect} placeholder="Select a Language" />
-
-            <Title name={'COMMANDS'}/>
-            <Commands commands={this.state.commands}/>
+          <Dropdown  className="dropdown" options={this.state.languages} value={this.state.languageSelected} onChange={this._onLanguageChange} placeholder="Select a Language" />
+          <div className="IntentBody">
+              <div className="voicePadding">
+                <VoiceControl />
+              </div>
+              <Title name={'COMMANDS'}/>
+              <Commands commands={this.state.commands}/>
+          </div>
         </div>
     );
   }
