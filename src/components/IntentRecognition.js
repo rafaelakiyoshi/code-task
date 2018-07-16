@@ -24,6 +24,11 @@ export default class IntentRecognition extends Component {
   }
 
   componentWillMount(){
+    /* 
+      THIS FUNCTION IS CALLED WHEN THE COMPONENT WILL BE MOUNT
+      THIS FUNCTION IS RESPONSIBLE TO FILL OUT THE DATA AT THE STATE, WITCH IS GONNA BE USED BY THE VIEW COMPOENENTS
+      IN ADITION, THIS FUNCTION SETS AS DEFAULT, THE FIRST LANGUAGE AND THE FIRST DATABASE.
+    */
     this.setState({commands: Dataset[0].data[0].commands})
     this._fetchDatabases().then((res) => {
       this.setState({datasets: res})
@@ -34,13 +39,17 @@ export default class IntentRecognition extends Component {
         this.setState({languages: res})
         this.setState({languageSelected: res[0]})
         
-      })
+      });
 
-    })
+    });
     
   }
   
   _onLanguageChange(option) {
+    /* 
+      THIS FUNCTION IS CALLED WHEN THE LANGUAGE CHANGES (THE SECOND DROPDOWN)
+      THIS FUNCTION UPDATES THE COMMANDS TO SHOW
+    */
     this._fetchCommands(this.state.dataSelected, option.value).then((res) => {
       this.setState({commands: res})
       this.setState({languageSelected: option.value})
@@ -49,6 +58,10 @@ export default class IntentRecognition extends Component {
   }
 
   _onDataChange(option) {
+    /* 
+      THIS FUNCTION IS CALLED WHEN THE DATABASE CHANGES (THE FIRST DROPDOWN)
+      THIS FUNCTION UPDATES THE SECOND DROPDOWN OPTIONS, AND SET THE FIRST LANGUAGE OPTION AS A SELECTED
+    */
     console.log(option.value)
     for(var index in this.state.datasets){
       console.log(this.state.datasets[index], option.value)
@@ -59,7 +72,7 @@ export default class IntentRecognition extends Component {
         this._fetchLanguages(index).then((res) => {
           this.setState({languages: res})
           this.setState({languageSelected: res[0]})
-        })
+        });
       }
     }
   }
@@ -73,7 +86,11 @@ export default class IntentRecognition extends Component {
           console.log(data.database)
           datasets.push(data.database)
         });
-        resolve(datasets)
+        if(datasets.length === 0){
+          reject('Error: Couldn\'t return the databases');
+        } else {
+          resolve(datasets);
+        }
       }, 50)
     })
   }
@@ -87,19 +104,28 @@ export default class IntentRecognition extends Component {
         console.log(dataItem.language)
         languages.push(dataItem.language)
       });
-      resolve(languages)
+      if(languages.length === 0){
+        reject('Error: Couldn\'t return the languages');
+      } else {
+        resolve(languages);
+      }
     }, 50)
     });
   }
 
   _fetchCommands(databaseSelected, languageSelected){
+    // THIS FUNCTION SIMULATE A FETCH INTO THE API TO GET THE COMMANDS, AND THE QUERY SHOULD USE THOSE PARAMETERS RECEIVED.
+    // INSTEAD OF FETCHING, THIS FUNCTION IS FILTERING THE JSON.
     return new Promise((resolve, reject) => {
-      // THIS TIMEOUT IS SIMULATING FETCH API DELAY
       Dataset.forEach(data => {
         if(data.database === databaseSelected){
           data.data.forEach(innerData => {
             if(innerData.language === languageSelected){
-              resolve(innerData.commands)
+              if(innerData.commands.length === 0){
+                reject('Error: Couldn\'t return the languages');
+              } else {
+                resolve(innerData.commands);
+              }
             }
           });
         }
