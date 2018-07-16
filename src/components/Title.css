@@ -1,8 +1,8 @@
 .Title-header {
   background-color: #383838;
   color: white;
-  margin: auto;
-  padding: 0px;
+  display: inline-block;
+  width: 100%;
 }
 
 .Title-title {
