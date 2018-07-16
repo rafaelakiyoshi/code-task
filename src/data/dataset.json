@@ -1,18 +1,180 @@
 [
   {
     "database": "Generic",
-    "english":[], 
-    "German":[], 
-    "Korean":[]
-  }, 
+    "data": [
+      {
+        "language": "English",
+        "commands": [
+          "Play Music",
+          "Pause",
+          "Mute",
+          "Next Song",
+          "Turn on the TV",
+          "Lower Temperature",
+          "Raise Temperature",
+          "Set an Alarm for 8 Alarm",
+          "Turn on the Lights",
+          "Turn off the Lights",
+          "What time is it?",
+          "Open Curtains",
+          "Close Curtains",
+          "Tune in traffic information",
+          "Turn on home security",
+          "Why is the maintenance light on",
+          "English",
+          "Korean",
+          "Go to speakers",
+          "Go to Thermostat",
+          "Go to Home Hub",
+          "Go to Menu",
+          "Go to personalization",
+          "Change Language",
+          "Volume Up",
+          "Open the gas tank",
+          "Resume",
+          "Skip",
+          "Unmute",
+          "Volume down",
+          "off",
+          "Play some Rock",
+          "Go to Sleep",
+          "Play some Jazz",
+          "Turn off the TV",
+          "How long have I run?"
+        ]
+      },
+      {
+        "language": "German",
+        "commands": [
+          "Spiel Musik",
+          "Pause",
+          "Stumm",
+          "Nächstes Lied",
+          "Schalte den Fernseher ein",
+          "Niedrigere Temperatur",
+          "Temperatur erhöhen",
+          "Einen Alarm für 8 Alarm einstellen",
+          "Schalte die Lichter an",
+          "Schalte das Licht aus",
+          "Wie spät ist es?",
+          "Vorhänge öffnen",
+          "Vorhänge schließen",
+          "Verkehrsinformationen einstellen",
+          "Heimsicherheit einschalten",
+          "Warum ist das Wartungslicht an?",
+          "Englisch",
+          "Koreanisch",
+          "Geh zu den Referenten",
+          "Gehe zu Thermostat",
+          "Gehe zum Home Hub",
+          "Gehe zu Menü",
+          "Gehe zur Personalisierung",
+          "Sprache ändern",
+          "Lauter",
+          "Öffne den Gastank",
+          "Fortsetzen",
+          "Überspringen",
+          "Unmute",
+          "Lautstärke runter",
+          "aus",
+          "Spiel ein bisschen Rock",
+          "Geh schlafen",
+          "Spiel ein bisschen Jazz",
+          "Schalte den Fernseher aus",
+          "Wie lange bin ich gelaufen?"
+        ]
+      },
+      {
+        "language": "Korean",
+        "commands": [
+          "음악을 재생",
+          "중지",
+          "묵자",
+          "다음 노래",
+          "티비를 켜라",
+          "낮은 온도",
+          "온도 상승",
+          "8 알람에 대한 알람 설정",
+          "불을 켜다",
+          "조명 끄기",
+          "몇 시죠?",
+          "오픈 커튼",
+          "커튼 닫기",
+          "교통 정보 조정",
+          "가정 보안 켜기",
+          "왜 유지 관리가 켜져 있습니까?",
+          "영어",
+          "한국어",
+          "스피커로 이동",
+          "서모 스탯으로 가라.",
+          "홈 허브로 이동",
+          "메뉴로 이동",
+          "맞춤 설정으로 이동",
+          "언어 변경",
+          "볼륨 업",
+          "가스 탱크 열어 라.",
+          "이력서",
+          "버킷",
+          "음소거 해제",
+          "볼륨 다운",
+          "떨어져서",
+          "약간의 록 연주",
+          "수면으로 가라.",
+          "재즈 연주하기",
+          "TV 끄기",
+          "얼마나 오래 달렸습니까?"
+        ]
+      }
+    ]
+  },
   {
     "database": "Mandarim",
-    "Chinese":[]
+    "data": [
+      {
+        "language": "Chinese",
+        "commands": [
+          "調整交通信息",
+          "打開家庭安全",
+          "為什麼維護燈亮了",
+          "英語",
+          "韓國",
+          "去聽音箱",
+          "去恆溫器",
+          "去家庭中心",
+          "轉到菜單",
+          "去個性化",
+          "改變語言",
+          "提高音量",
+          "打開油箱",
+          "恢復",
+          "跳躍",
+          "取消靜音",
+          "音量減小",
+          "關",
+          "玩一些搖滾",
+          "去睡覺",
+          "玩一些爵士樂",
+          "關掉電視",
+          "我跑多久了？"
+        ]
+      }
+    ]
   },
   {
     "database": "Lauren_Tree_Structure",
-    "english":[], 
-    "German":[], 
-    "Korean":[]
+    "data": [
+      {
+        "language": "English",
+        "commands": []
+      },
+      {
+        "language": "German",
+        "commands": []
+      },
+      {
+        "language": "Korean",
+        "commands": []
+      }
+    ]
   }
 ]
